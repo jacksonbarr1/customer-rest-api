@@ -29,4 +29,9 @@ public class CustomerController {
     public Customer findCustomerById(@PathVariable Long id) throws CustomerNotFoundException {
         return customerService.findCustomerById(id);
     }
+
+    @DeleteMapping("/customer/{id}")
+    public void deleteById(@PathVariable Long id) throws CustomerNotFoundException {
+        customerService.deleteCustomerById(id);
+    }
 }

@@ -33,4 +33,13 @@ public class CustomerServiceImpl implements CustomerService {
 
         return customer.get();
     }
+
+    public void deleteCustomerById(Long id) throws CustomerNotFoundException {
+        Customer customer = findCustomerById(id);
+        deleteCustomer(customer);
+    }
+
+    public void deleteCustomer(Customer customer) {
+        customerRepository.delete(customer);
+    }
 }
