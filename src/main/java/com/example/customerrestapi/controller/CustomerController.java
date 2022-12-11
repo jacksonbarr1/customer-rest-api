@@ -1,6 +1,7 @@
 package com.example.customerrestapi.controller;
 
 import com.example.customerrestapi.entity.Customer;
+import com.example.customerrestapi.error.CustomerNotFoundException;
 import com.example.customerrestapi.service.CustomerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/{id}")
-    public Customer findCustomerById(@PathVariable Long id) throws Exception {
+    public Customer findCustomerById(@PathVariable Long id) throws CustomerNotFoundException {
         return customerService.findCustomerById(id);
     }
 }

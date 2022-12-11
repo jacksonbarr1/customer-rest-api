@@ -1,6 +1,7 @@
 package com.example.customerrestapi.service;
 
 import com.example.customerrestapi.entity.Customer;
+import com.example.customerrestapi.error.CustomerNotFoundException;
 import com.example.customerrestapi.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +25,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findCustomerById(Long id) throws Exception {
+    public Customer findCustomerById(Long id) throws CustomerNotFoundException {
         Optional<Customer> customer = customerRepository.findById(id);
         if (customer.isEmpty()) {
-            throw new Exception();
+            throw new CustomerNotFoundException("Customer not found");
         }
 
         return customer.get();
