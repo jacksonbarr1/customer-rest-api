@@ -1,0 +1,35 @@
+package com.example.customerrestapi.service;
+
+import com.example.customerrestapi.entity.Customer;
+import com.example.customerrestapi.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CustomerServiceImpl implements CustomerService {
+
+    @Autowired
+    CustomerRepository customerRepository;
+    @Override
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    @Override
+    public List<Customer> findAllCustomers() {
+        return customerRepository.findAll();
+    }
+
+    @Override
+    public Customer findCustomerById(Long id) throws Exception {
+        Optional<Customer> customer = customerRepository.findById(id);
+        if (customer.isEmpty()) {
+            throw new Exception();
+        }
+
+        return customer.get();
+    }
+}
