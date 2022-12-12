@@ -25,12 +25,12 @@ public class CustomerController {
         return customerService.findAllCustomers();
     }
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("/customer/{id:\\d+}")
     public Customer findCustomerById(@PathVariable Long id) throws CustomerNotFoundException {
         return customerService.findCustomerById(id);
     }
 
-    @GetMapping("/customer/name/{name}")
+    @GetMapping("/customer/{name:[a-zA-Z]+}")
     public Customer findCustomerByName(@PathVariable String name) throws CustomerNotFoundException {
         return customerService.findCustomerByName(name);
     }
