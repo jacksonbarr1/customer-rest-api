@@ -34,6 +34,16 @@ public class CustomerServiceImpl implements CustomerService {
         return customer.get();
     }
 
+    @Override
+    public Customer findCustomerByName(String name) throws CustomerNotFoundException {
+        Optional<Customer> customer = customerRepository.findByNameIgnoreCase(name);
+        if (customer.isEmpty()) {
+            throw new CustomerNotFoundException("Customer with name " + name + " not found.");
+        }
+
+        return customer.get();
+    }
+
     public void deleteCustomerById(Long id) throws CustomerNotFoundException {
         Customer customer = findCustomerById(id);
         deleteCustomer(customer);

@@ -14,6 +14,8 @@ public interface CustomerService {
 
     Customer findCustomerById(Long id) throws CustomerNotFoundException;
 
+    Customer findCustomerByName(String name) throws CustomerNotFoundException;
+
     void deleteCustomerById(Long id) throws CustomerNotFoundException;
 
 }

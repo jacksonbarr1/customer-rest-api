@@ -30,8 +30,15 @@ public class CustomerController {
         return customerService.findCustomerById(id);
     }
 
+    @GetMapping("/customer/name/{name}")
+    public Customer findCustomerByName(@PathVariable String name) throws CustomerNotFoundException {
+        return customerService.findCustomerByName(name);
+    }
+
     @DeleteMapping("/customer/{id}")
     public void deleteById(@PathVariable Long id) throws CustomerNotFoundException {
         customerService.deleteCustomerById(id);
     }
+
+
 }
