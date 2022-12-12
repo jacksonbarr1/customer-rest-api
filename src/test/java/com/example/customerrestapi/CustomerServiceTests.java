@@ -35,7 +35,7 @@ public class CustomerServiceTests {
 
         Mockito.when(customerRepository.save(customer))
                 .thenReturn(customer);
-        Mockito.when(customerRepository.findByNameIgnoreCase("Jackson"))
+        Mockito.when(customerRepository.findTopByNameIgnoreCase("Jackson"))
                 .thenReturn(Optional.of(customer));
         Mockito.when(customerRepository.findById(1L))
                 .thenReturn(Optional.of(customer));
