@@ -2,7 +2,6 @@ package com.example.customerrestapi.service;
 
 import com.example.customerrestapi.entity.Customer;
 import com.example.customerrestapi.error.CustomerNotFoundException;
-import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.List;
 
@@ -18,4 +17,5 @@ public interface CustomerService {
 
     void deleteCustomerById(Long id) throws CustomerNotFoundException;
 
+    void deleteCustomer(Customer customer);
 }

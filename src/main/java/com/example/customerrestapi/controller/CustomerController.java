@@ -20,14 +20,14 @@ public class CustomerController {
         return customerService.saveCustomer(customer);
     }
 
-    @GetMapping("/customer")
-    public List<Customer> findAllCustomers() {
-        return customerService.findAllCustomers();
-    }
-
     @GetMapping("/customer/{id:\\d+}")
     public Customer findCustomerById(@PathVariable Long id) throws CustomerNotFoundException {
         return customerService.findCustomerById(id);
+    }
+
+    @GetMapping("/customer")
+    public List<Customer> findAllCustomers() {
+        return customerService.findAllCustomers();
     }
 
     @GetMapping("/customer/{name:[a-zA-Z]+}")

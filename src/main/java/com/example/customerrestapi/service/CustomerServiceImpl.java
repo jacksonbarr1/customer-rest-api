@@ -14,6 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     CustomerRepository customerRepository;
+
     @Override
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save(customer);
@@ -44,11 +45,13 @@ public class CustomerServiceImpl implements CustomerService {
         return customer.get();
     }
 
+    @Override
     public void deleteCustomerById(Long id) throws CustomerNotFoundException {
         Customer customer = findCustomerById(id);
         deleteCustomer(customer);
     }
 
+    @Override
     public void deleteCustomer(Customer customer) {
         customerRepository.delete(customer);
     }
