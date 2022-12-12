@@ -32,7 +32,6 @@ public class CustomerServiceTests {
     void setUp() {
         List<Customer> customerList = new ArrayList<>();
         customerList.add(customer);
-        customerList.add(customer);
 
         Mockito.when(customerRepository.save(customer))
                 .thenReturn(customer);
