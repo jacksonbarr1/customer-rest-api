@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer findCustomerByName(String name) throws CustomerNotFoundException {
-        Optional<Customer> customer = customerRepository.findByNameIgnoreCase(name);
+        Optional<Customer> customer = customerRepository.findTopByNameIgnoreCase(name);
         if (customer.isEmpty()) {
             throw new CustomerNotFoundException("Customer with name " + name + " not found.");
         }

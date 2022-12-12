@@ -6,5 +6,5 @@ import org.springframework.data.repository.ListCrudRepository;
 import java.util.Optional;
 
 public interface CustomerRepository extends ListCrudRepository<Customer, Long> {
-    Optional<Customer> findByNameIgnoreCase(String name);
+    Optional<Customer> findTopByNameIgnoreCase(String name);
 }
