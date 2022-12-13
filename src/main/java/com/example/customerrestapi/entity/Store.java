@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -29,4 +31,14 @@ public class Store {
             referencedColumnName = "addressId"
     )
     private Address address;
+
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinTable(
+            name = "store_customers",
+            joinColumns = @JoinColumn(name = "store_id"),
+            inverseJoinColumns = @JoinColumn(name = "customer_id")
+    )
+    private List<Customer> customers;
 }
