@@ -1,9 +1,6 @@
 package com.example.customerrestapi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +20,13 @@ public class Store {
     private String branchName;
 
     private int revenue;
+
+    @OneToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "address_id",
+            referencedColumnName = "addressId"
+    )
+    private Address address;
 }
