@@ -60,7 +60,7 @@ public class CustomerServiceTests {
     public void validCustomerId_findsCustomer() throws CustomerNotFoundException {
         Long id = 1L;
         Customer fetched = customerService.findCustomerById(id);
-        assertEquals(id, fetched.getId());
+        assertEquals(id, fetched.getCustomerId());
     }
 
     @Test

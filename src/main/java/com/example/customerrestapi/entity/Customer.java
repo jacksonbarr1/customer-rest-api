@@ -22,7 +22,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long customerId;
 
     @NotNull
     @Pattern(regexp = "[a-zA-Z]+")
