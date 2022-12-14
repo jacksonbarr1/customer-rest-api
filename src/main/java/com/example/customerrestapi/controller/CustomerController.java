@@ -20,6 +20,12 @@ public class CustomerController {
         return customerService.saveCustomer(customer);
     }
 
+    @PutMapping("/customer/{id:\\d+}")
+    public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+        customer.setCustomerId(id);
+        return customerService.saveCustomer(customer);
+    }
+
     @GetMapping("/customer/{id:\\d+}")
     public Customer findCustomerById(@PathVariable Long id) throws CustomerNotFoundException {
         return customerService.findCustomerById(id);
