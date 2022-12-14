@@ -1,5 +1,6 @@
 package com.example.customerrestapi.controller;
 
+import com.example.customerrestapi.entity.Customer;
 import com.example.customerrestapi.entity.Store;
 import com.example.customerrestapi.error.StoreNotFoundException;
 import com.example.customerrestapi.service.StoreService;
@@ -38,5 +39,11 @@ public class StoreController {
     @DeleteMapping("/store/{id}")
     public void deleteById(@PathVariable Long id) throws StoreNotFoundException {
         storeService.deleteStoreById(id);
+    }
+
+    @GetMapping("store/{id}/customers")
+    public List<Customer> findCustomersByStoreId(@PathVariable Long id) throws StoreNotFoundException {
+        Store store = storeService.findStoreById(id);
+        return store.getCustomers();
     }
 }
