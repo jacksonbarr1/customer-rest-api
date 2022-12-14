@@ -21,6 +21,12 @@ public class StoreController {
         return storeService.saveStore(store);
     }
 
+    @PutMapping("/store/{id:\\d+}")
+    public Store updateStore(@PathVariable Long id, @Valid @RequestBody Store store) {
+        store.setStoreId(id);
+        return storeService.saveStore(store);
+    }
+
     @GetMapping("/store/{id:\\d+}")
     public Store findStoreById(@PathVariable Long id) throws StoreNotFoundException {
         return storeService.findStoreById(id);
