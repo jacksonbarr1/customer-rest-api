@@ -1,2 +1,4 @@
-# Spring Boot REST API Project
-A basic project to practice CRUD REST APIs with Spring Web using MySQL
+# Spring Boot Store Manager API
+
+Uses Spring Web, Spring Data JPA, to perform CRUD operations on a MySQL database.
+
